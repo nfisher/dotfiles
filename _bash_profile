@@ -35,7 +35,11 @@ alias s9="pwd > ~/.bookmarks/b9"
 alias s10="pwd > ~/.bookmarks/b10"
 
 bl() {
-	for BM in `cd ~/.bookmarks && grep . b*`; do echo $BM; done
+	if [ ! -d ~/.bookmarks ]; then
+		mkdir ~/.bookmarks
+	fi
+
+	for BM in `cd ~/.bookmarks && grep . b* 2> /dev/null`; do echo $BM; done
 }
 
 echo 'Bookmarks:'
