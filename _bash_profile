@@ -39,7 +39,7 @@ bl() {
 		mkdir ~/.bookmarks
 	fi
 
-	for BM in `cd ~/.bookmarks && grep . b* 2> /dev/null`; do echo $BM; done
+	for BM in `cd ~/.bookmarks && grep -H . b* 2> /dev/null`; do echo $BM; done
 }
 
 echo 'Bookmarks:'
