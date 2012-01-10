@@ -11,6 +11,7 @@ let mapleader=';'
 set autoindent
 set autowrite
 set encoding=utf-8
+set guioptions-=T
 set hlsearch
 set ignorecase
 set incsearch

@@ -58,3 +58,5 @@ parse_git_branch() {
 }
 export PS1='\[\e[1;37m\][\[\e[1;35m\]$(date +%H:%M) \u\[\e[1;37m\]@\[\e[1;32m\]\h\[\e[1;37m\]:\[\e[1;36m\]\w\[\e[1;33m\]$(parse_git_branch)\[\e[1;37m\]]$ \[\e[0m\]'
 
+[[ -s "/Users/nfisher/.rvm/scripts/rvm" ]] && source "/Users/nfisher/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+
