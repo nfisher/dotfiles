@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/nfisher/.m2'
+let g:netrw_dirhist_2='/Users/nfisher/workspace/InfrastructureBilling'
+let g:netrw_dirhist_3='/Users/nfisher/workspace/InfrastructureBilling/puppet/modules/pinuser'
+let g:netrw_dirhist_4='/Users/nfisher/workspace/InfrastructureBilling'
+let g:netrw_dirhist_5='/Users/nfisher/workspace/Photon/src'
+let g:netrw_dirhist_6='/Users/nfisher/workspace/InfrastructureBilling/puppet/modules/oracleclient'
