@@ -5,3 +5,4 @@ fi
 ln -sf `pwd`/_vim ~/.vim
 ln -sf `pwd`/_vimrc ~/.vimrc
 ln -sf `pwd`/_gitconfig ~/.gitconfig
+ln -sf `pwd`/_autotest ~/.autotest
