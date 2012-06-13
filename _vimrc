@@ -11,6 +11,7 @@ let mapleader=';'
 set autoindent
 set autowrite
 set encoding=utf-8
+set expandtab
 set guioptions-=T
 set hlsearch
 set ignorecase
@@ -25,6 +26,7 @@ set softtabstop=2
 set spelllang=en_ca
 set tabstop=2
 set wildmode=longest,list
+
 
 noremap <Leader>w <Esc>:w<Return>
 
