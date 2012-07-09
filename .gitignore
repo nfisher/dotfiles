@@ -1,0 +1,3 @@
+*.o
+_vim/ruby/command-t/ext.bundle
+*.log
