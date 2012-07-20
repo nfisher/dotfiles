@@ -34,3 +34,5 @@
 	prompt = false
 [gui]
 	recentrepo = /Users/nfisher/workspace/sso-cas
+[credential]
+	helper = cache
