@@ -35,4 +35,4 @@
 [gui]
 	recentrepo = /Users/nfisher/workspace/sso-cas
 [credential]
-	helper = cache
+	helper = cache --timeout=3600
