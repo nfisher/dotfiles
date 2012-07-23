@@ -7,3 +7,4 @@ ln -sf `pwd`/_vimrc ~/.vimrc
 ln -sf `pwd`/_gitconfig ~/.gitconfig
 ln -sf `pwd`/_autotest ~/.autotest
 ln -sf `pwd`/_zshrc ~/.zshrc
+ln -sf `pwd`/_gemrc ~/.gemrc
