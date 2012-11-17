@@ -77,7 +77,3 @@ vcs_info_wrapper() {
 export CC="gcc-4.2"
 RPROMPT=$'$(vcs_info_wrapper)'
 PROMPT=$'%F{5}%T %m %~%#%f '
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
