@@ -2,7 +2,7 @@ filetype plugin indent on
 set nocp
 
 "colorscheme solarized
-colorscheme koehler
+colorscheme slate
 filetype plugin on
 syntax on
 

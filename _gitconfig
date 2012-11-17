@@ -32,7 +32,10 @@
 	default = tracking
 [difftool]
 	prompt = false
-[gui]
-	recentrepo = /Users/nfisher/workspace/sso-cas
 [credential]
 	helper = cache --timeout=3600
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
