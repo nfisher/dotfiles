@@ -1,3 +1,4 @@
+call pathogen#infect()
 filetype plugin indent on
 set nocp
 
@@ -39,3 +40,5 @@ inoremap <C-j> <Esc>:w<Return>
 map <Leader>\ <Plug>RubyTestRun " change from <Leader>t to <Leader>\ 
 map <Leader>] <Plug>RubyFileRun " change from <Leader>T to <Leader>] 
 
+let g:vimclojure#HighlightBuiltins = 1
+let g:vimclojure#ParenRainbow = 1
