@@ -31,6 +31,12 @@ set wildmode=longest,list
 
 noremap <Leader>w <Esc>:w<Return>
 
+nmap j gj
+nmap k gk
+
+let g:vimclojure#HighlightBuiltins = 1
+let g:vimclojure#ParenRainbow = 1
+
 " Remap Ctrl-J to write
 noremap <C-j> <Esc>:w<Return>
 vnoremap <C-j> <Esc>:w<Return>
@@ -40,5 +46,3 @@ inoremap <C-j> <Esc>:w<Return>
 map <Leader>\ <Plug>RubyTestRun " change from <Leader>t to <Leader>\ 
 map <Leader>] <Plug>RubyFileRun " change from <Leader>T to <Leader>] 
 
-let g:vimclojure#HighlightBuiltins = 1
-let g:vimclojure#ParenRainbow = 1
