@@ -1,0 +1,40 @@
+servers = (
+  {
+    address = "irc.freenode.net";
+    port = "6667";
+    chatnet = "freenode";
+    autoconnect = "yes";
+  }
+);
+
+chatnets = { freenode = { type = "IRC"; }; };
+
+channels = ( 
+  { name = "#clojure";    chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#fabric";     chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#java";       chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#mongodb";    chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#neo4j";      chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#postgresql"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#puppet";     chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#python";     chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#ruby";       chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#vim";        chatnet = "freenode"; autojoin = "yes"; },
+);
+
+settings = {
+  core = {
+    nick = "nfisher";
+    quit_message = "Good-bye all!";
+    server_connect_timeout = "1min";
+    real_name = "Nathan Fisher";
+    user_name = "nfisher";
+  };
+  "fe-text" = { actlist_sort = "refnum"; };
+  "fe-common/core" = {
+    activity_hide_level = "QUITS JOINS PARTS KICKS MODES TOPIC NICKS";
+  };
+};
+ignores = (
+  { level = "JOINS PARTS QUITS NICKS"; }
+);

@@ -11,3 +11,4 @@ ln -sf `pwd`/_autotest ~/.autotest
 ln -sf `pwd`/_zshrc ~/.zshrc
 ln -sf `pwd`/_gemrc ~/.gemrc
 ln -sf `pwd`/_aliases ~/.aliases
+ln -sf `pwd`/_irssi ~/.irssi
