@@ -1,7 +1,7 @@
 call pathogen#infect()
 set nocp
 
-colorscheme koehler
+colorscheme darkblue
 
 set autoindent
 set autowrite
