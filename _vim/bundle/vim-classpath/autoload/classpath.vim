@@ -6,6 +6,14 @@ if exists("g:autoloaded_classpath")
 endif
 let g:autoloaded_classpath = 1
 
+if !exists('g:classpath_cache')
+  let g:classpath_cache = '~/.cache/vim/classpath'
+endif
+
+if !isdirectory(expand(g:classpath_cache))
+  call mkdir(expand(g:classpath_cache), 'p')
+endif
+
 function! classpath#separator() abort
  return has('win32') ? ';' : ':'
 endfunction
@@ -60,23 +68,21 @@ function! classpath#detect(...) abort
 
   let previous = ""
   while root !=# previous
-    if isdirectory(root . '/src')
-      if filereadable(root . '/project.clj')
-        let file = 'project.clj'
-        let cmd = 'lein classpath'
-        let pattern = "[^\n]*\\ze\n*$"
-        let default = join(map(['test', 'src', 'dev-resources', 'resources', 'target'.sep.'classes'], 'escape(root . sep . v:val, ", ")'), ',')
-        let base = ''
-        break
-      endif
-      if filereadable(root . '/pom.xml')
-        let file = 'pom.xml'
-        let cmd = 'mvn dependency:build-classpath'
-        let pattern = '\%(^\|\n\)\zs[^[].\{-\}\ze\n'
-        let base = escape(root.sep.'src'.sep.'*'.sep.'*', ', ') . ','
-        let default = base . default
-        break
-      endif
+    if filereadable(root . '/project.clj') && join(readfile(root . '/project.clj', '', 50), "\n") =~# '(\s*defproject'
+      let file = 'project.clj'
+      let cmd = 'lein classpath'
+      let pattern = "[^\n]*\\ze\n*$"
+      let default = join(map(['test', 'src', 'dev-resources', 'resources', 'target'.sep.'classes'], 'escape(root . sep . v:val, ", ")'), ',')
+      let base = ''
+      break
+    endif
+    if filereadable(root . '/pom.xml')
+      let file = 'pom.xml'
+      let cmd = 'mvn dependency:build-classpath'
+      let pattern = '\%(^\|\n\)\zs[^[].\{-\}\ze\n'
+      let base = escape(root.sep.'src'.sep.'*'.sep.'*', ', ') . ','
+      let default = base . default
+      break
     endif
     let previous = root
     let root = fnamemodify(root, ':h')
@@ -90,15 +96,24 @@ function! classpath#detect(...) abort
     endif
   endif
 
-  if !exists('g:CLASSPATH_CACHE') || type(g:CLASSPATH_CACHE) != type({})
+  if exists('g:CLASSPATH_CACHE') && (type(g:CLASSPATH_CACHE) != type({}) || empty(g:CLASSPATH_CACHE))
     unlet! g:CLASSPATH_CACHE
-    let g:CLASSPATH_CACHE = {}
   endif
 
-  let [when, last, path] = split(get(g:CLASSPATH_CACHE, root, "-1\t-1\t."), "\t")
+  let cache = expand(g:classpath_cache . '/') . substitute(root, '[\/]', '%', 'g')
   let disk = getftime(root . sep . file)
-  if last ==# disk
-    return path
+
+  if exists('g:CLASSPATH_CACHE') && has_key(g:CLASSPATH_CACHE, root)
+    let [when, last, path] = split(g:CLASSPATH_CACHE[root], "\t")
+    call remove(g:CLASSPATH_CACHE, root)
+    if last ==# disk
+      call writefile([path], cache)
+      return path
+    endif
+  endif
+
+  if getftime(cache) >= disk
+    return join(readfile(cache), classpath#separator())
   else
     try
       if &verbose
@@ -118,7 +133,7 @@ function! classpath#detect(...) abort
     let match = matchstr(out, pattern)
     if !v:shell_error && exists('out') && out !=# ''
       let path = base . classpath#to_vim(match)
-      let g:CLASSPATH_CACHE[root] = localtime() . "\t" . disk . "\t" . path
+      call writefile([path], cache)
       return path
     else
       echohl WarningMSG
