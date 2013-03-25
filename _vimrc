@@ -1,4 +1,6 @@
-call pathogen#infect()
+exec pathogen#infect()
+syntax on
+filetype plugin indent on
 set nocp
 
 colorscheme darkblue
@@ -58,5 +60,3 @@ endf
 
 nmap <S-F6> :call RefactorRename()<CR>
 
-filetype plugin indent on
-syntax on
