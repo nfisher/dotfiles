@@ -1,5 +1,6 @@
 *.o
 *.so
 _vim/ruby/command-t/ext.bundle
+_vim/.netrwhist
 *.log
 *.sw?
