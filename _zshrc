@@ -1,7 +1,25 @@
 source ~/.aliases
 
+function ticket() {
+  echo -n "Ticket #: "
+  read TICKET
+}
+
+function pair() {
+  echo -n "Pair: "
+  read PAIR
+}
+
 function gcm() {
-git commit -m "[#$TICKET] $PAIR: $@"
+if [ "x$TICKET" = "x" ]; then
+  ticket
+fi
+
+if [ "x$PAIR" = "x" ]; then
+  pair
+fi
+
+git commit -m "[#${TICKET}] $@ :$PAIR"
 }
 
 function jp() {
