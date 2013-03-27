@@ -6,8 +6,13 @@ function ticket() {
 }
 
 function pair() {
-  echo -n "Pair: "
-  read PAIR
+  if [ $# -eq 0 ]; then
+    echo -n "Pair: "
+    read PAIR
+  else
+    export PAIR=$1
+    echo "Pair is set to ${PAIR}"
+  fi
 }
 
 function gcm() {
@@ -63,6 +68,7 @@ EOT
 
 echo 'Bookmarks:'
 bl
+pair "@$USER"
 
 export HISTSIZE=500000
 export HISTFILESIZE=500000
