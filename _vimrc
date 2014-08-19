@@ -1,6 +1,10 @@
 exec pathogen#infect()
-syntax on
+
+filetype off
+filetype plugin indent off
+set runtimepath+=/usr/local/go/misc/vim
 filetype plugin indent on
+syntax on
 set nocp
 
 colorscheme darkblue
@@ -27,6 +31,7 @@ set wildmode=longest,list
 
 nmap j gj
 nmap k gk
+nmap <Leader>t :make!<Return>
 
 " Remap Ctrl-J to write
 noremap <C-j> <Esc>:w<Return>
@@ -60,3 +65,4 @@ endf
 
 nmap <S-F6> :call RefactorRename()<CR>
 
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
