@@ -96,6 +96,5 @@ vcs_info_wrapper() {
   fi
 }
 
-export CC="gcc-4.2"
 RPROMPT=$'$(vcs_info_wrapper)'
 PROMPT=$'%F{5}%T %m %~%#%f '
