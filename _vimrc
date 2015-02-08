@@ -1,13 +1,10 @@
 exec pathogen#infect()
 
 filetype off
-filetype plugin indent off
-set runtimepath+=/usr/local/go/misc/vim
 filetype plugin indent on
 syntax on
 set nocp
 
-colorscheme darkblue
 
 set autoindent
 set autowrite
