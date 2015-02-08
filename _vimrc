@@ -61,5 +61,3 @@ function! RefactorRename()
 endf
 
 nmap <S-F6> :call RefactorRename()<CR>
-
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
