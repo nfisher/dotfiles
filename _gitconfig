@@ -41,3 +41,7 @@
 	prompt = false
 [github]
 	user = nfisher
+[core]
+	editor = vim -u NONE
+[url "git@github.com:"]
+	insteadOf = https://github.com/
