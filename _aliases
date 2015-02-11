@@ -61,3 +61,10 @@ function keyup() {
 	fi
 }
 
+function gr() {
+  if [ "$1" = "" ]; then
+    echo "No search pattern specified."
+  fi
+
+  grep -RHn "$1" *
+}

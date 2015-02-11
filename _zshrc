@@ -68,7 +68,7 @@ EOT
 
 echo 'Bookmarks:'
 bl
-pair "@$USER"
+pair "@nfisher"
 
 export HISTSIZE=500000
 export HISTFILESIZE=500000

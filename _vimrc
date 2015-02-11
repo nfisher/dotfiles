@@ -5,7 +5,6 @@ filetype plugin indent on
 syntax on
 set nocp
 
-
 set autoindent
 set autowrite
 set encoding=utf-8
@@ -28,7 +27,7 @@ set wildmode=longest,list
 
 nmap j gj
 nmap k gk
-nmap <Leader>t :make!<Return>
+
 
 " Remap Ctrl-J to write
 noremap <C-j> <Esc>:w<Return>
@@ -53,11 +52,24 @@ function! RefactorRename()
   else
     exec 'vimgrep /\(\W\)'.@z.'\(\W\)/ **'
     for item in getqflist()
-      echo item['nr'].':'.bufname(item['bufnr']).'|'.item['lnum'].' col '.item['col'].'|'.item['text']
+      echo bufname(item['bufnr']).' ('.item['lnum'].', '.item['col'].')'.item['text']
     endfor
   endif
   norm ``
+  let l:response = input('Begin Refactor (y/n): ')
+  if l:response == 'n' || l:response == 'N'
+    echo "Aborting rename"
+    return
+  endif
   let @z = l:previous_z
 endf
 
 nmap <S-F6> :call RefactorRename()<CR>
+
+function! MakeTest(test)
+  exe "make! -j2 " . a:test
+endf
+let g:test_target = "test"
+nmap <Leader>t :call MakeTest(g:test_target)<CR>
+
+autocmd BufWritePost *.go silent! !gotags -R=true . > tags &
