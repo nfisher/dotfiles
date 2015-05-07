@@ -9,6 +9,7 @@ set autoindent
 set autowrite
 set encoding=utf-8
 set expandtab
+set foldmethod=syntax
 set guioptions-=T
 set hlsearch
 set ignorecase
@@ -71,5 +72,7 @@ function! MakeTest(test)
 endf
 let g:test_target = "test"
 nmap <Leader>t :call MakeTest(g:test_target)<CR>
+
+let g:go_fmt_command="goimports"
 
 autocmd BufWritePost *.go silent! !gotags -R=true . > tags &
