@@ -96,9 +96,9 @@ vcs_info_wrapper() {
   fi
 }
 
-RPROMPT=$'$(vcs_info_wrapper)'
+RPROMPT=$'RC: %? - $(vcs_info_wrapper)'
 PROMPT=$'%F{5}%T %m %~%#%f '
 
-if [ -f ~/.zsh_local ]; then
-  source ~/.zsh_local
+if [ -e "${HOME}/.zsh_local" ]; then
+  source "${HOME}/.zsh_local"
 fi
