@@ -7,3 +7,6 @@
 [submodule "_vim/bundle/YouCompleteMe"]
 	path = _vim/bundle/YouCompleteMe
 	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "_vim/bundle/vim-slamhound"]
+	path = _vim/bundle/vim-slamhound
+	url = https://github.com/guns/vim-slamhound.git
