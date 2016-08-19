@@ -102,3 +102,6 @@ PROMPT=$'%F{5}%T %m %~%#%f '
 if [ -f ~/.zsh_local ]; then
   source ~/.zsh_local
 fi
+
+# added by travis gem
+[ -f /Users/nfisher/.travis/travis.sh ] && source /Users/nfisher/.travis/travis.sh
