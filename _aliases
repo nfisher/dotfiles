@@ -21,6 +21,7 @@ alias vr="vagrant reload"
 alias vs="vagrant ssh"
 alias vt="vagrant status"
 alias vu="vagrant up"
+alias sha256="shasum -a 256"
 
 # bookmarks
 
