@@ -1,48 +1,7 @@
 source ~/.aliases
 
-function jp() {
-	CURRENT_PROJECT=$1
-	if [ "$1" = "" ]; then
-		echo "Enter Project Name;"
-		read CURRENT_PROJECT
-	fi
-
-	mkdir -p $CURRENT_PROJECT/src/{main,test}/java
-	mkdir -p $CURRENT_PROJECT/src/test/resources
-	cat > $CURRENT_PROJECT/.gitignore << EOT
-.DS_Store
-.classpath
-.project
-*.swp
-*.iml
-*.ipr
-*.iws
-libs
-reports
-target
-EOT
-	touch $CURRENT_PROJECT/src/main/java/.gitignore
-	touch $CURRENT_PROJECT/src/test/java/.gitignore
-	touch $CURRENT_PROJECT/src/test/resources/.gitignore
-	cat > $CURRENT_PROJECT/Buildfile << EOT
-repositories.remote << 'http://repo1.maven.org/maven2'
-repositories.remote << 'http://www.ibiblio.org/maven2'
-
-CUCUMBER=[transitive('info.cukes:cucumber-junit:jar:1.0.0.RC6'),transitive('info.cukes:cucumber-java:jar:1.0.0.RC6')]
-
-define '${CURRENT_PROJECT}' do
-	project.version = '0.0.0'
-	compile.using(:lint => 'all').with(CUCUMBER)
-	package(:jar)
-	test.using(:junit)
-end
-EOT
-}
-
 echo 'Bookmarks:'
 bl
-
-#export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
 
 function parse_git_branch() {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\ →\ \1/'
