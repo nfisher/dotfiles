@@ -9,3 +9,9 @@ function parse_git_branch() {
 
 export PS1='\[\e[1;37m\][\[\e[1;35m\]$(date +%H:%M) \u\[\e[1;37m\]@\[\e[1;32m\]\h\[\e[1;37m\]:\[\e[1;36m\]\w\[\e[1;33m\]$(parse_git_branch)\[\e[1;37m\]]$ \[\e[0m\]'
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/nathanfisher/workspace/google-cloud-sdk/path.bash.inc' ]; then . '/Users/nathanfisher/workspace/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/nathanfisher/workspace/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/nathanfisher/workspace/google-cloud-sdk/completion.bash.inc'; fi
