@@ -75,5 +75,5 @@ nmap <Leader>t :call MakeTest(g:test_target)<CR>
 
 let g:go_fmt_command="goimports"
 
-autocmd BufWritePost *.go silent! !gotags -R=true . > tags &
+" "autocmd BufWritePost *.go silent! !gotags -R=true . > tags &
 autocmd FileType go nmap <Leader>t :GoTest<CR>

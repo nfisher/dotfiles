@@ -6,13 +6,9 @@ if exists("g:loaded_classpath") || v:version < 700 || &cp
 endif
 let g:loaded_classpath = 1
 
-if &viminfo !~# '!'
-  set viminfo^=!
-endif
-
 augroup classpath
   autocmd!
-  autocmd FileType clojure,groovy,java,scala
+  autocmd FileType clojure,groovy,java,scala,kotlin
         \ if expand('%:p') =~# '^zipfile:' |
         \   let &l:path = getbufvar('#', '&path') |
         \ else |
