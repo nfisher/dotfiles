@@ -44,6 +44,8 @@
 	user = nfisher
 [core]
 	editor = vim -u NONE
+[url "git@github.ibm.com:"]
+	insteadOf = https://github.ibm.com/
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [filter "lfs"]
@@ -53,3 +55,5 @@
 	process = git-lfs filter-process
 [http]
 	cookiefile = /Users/nathanfisher/.gitcookies
+[init]
+	defaultBranch = main
