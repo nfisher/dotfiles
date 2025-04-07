@@ -98,6 +98,7 @@ vcs_info_wrapper() {
 
 RPROMPT=$'RC: %? - $(vcs_info_wrapper)'
 PROMPT=$'%F{5}%T %m %~%#%f '
+PROMPT=$'%F{3}$(/Users/nfisher/go/bin/k8scontext)\n%F{5}%T %m %~%#%f '
 
 if [ -e "${HOME}/.zsh_local" ]; then
   source "${HOME}/.zsh_local"
@@ -123,3 +124,6 @@ export PATH="/Users/nfisher/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# The next line updates PATH for Nebius CLI.
+if [ -f '/Users/nfisher/.nebius/path.zsh.inc' ]; then source '/Users/nfisher/.nebius/path.zsh.inc'; fi
